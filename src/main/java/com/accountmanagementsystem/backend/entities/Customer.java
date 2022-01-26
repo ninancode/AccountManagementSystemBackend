@@ -17,7 +17,7 @@ import java.sql.Date;
 public class Customer {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    int customerId;
+    Integer customerId;
     int pan;
     int uid;
     String name;

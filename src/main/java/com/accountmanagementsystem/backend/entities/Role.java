@@ -13,7 +13,7 @@ import javax.persistence.Id;
 @Entity
 public class Role {
     @Id
-    int roleId;
+    Integer roleId;
     String role;
 
     public Role(String role) {

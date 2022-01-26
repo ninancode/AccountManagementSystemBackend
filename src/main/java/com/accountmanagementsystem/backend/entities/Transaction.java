@@ -18,7 +18,7 @@ import java.sql.Time;
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int transactionId;
+    Integer transactionId;
     int transactionRef;
     Date date;
     Time time;
