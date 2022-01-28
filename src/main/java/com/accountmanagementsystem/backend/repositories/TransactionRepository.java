@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface TransactionRepository extends JpaRepository<Transaction, Integer> {
-    List<Transaction> findTransactionsByTransactionRef(int id);
+    List<Transaction> findTransactionsByTransactionRef(int transactionRef);
 }
