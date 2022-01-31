@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class User {
     @Id
     Integer id;
-    @GeneratedValue(strategy = GenerationType.AUTO)
     String password;
     int roleId;
 
