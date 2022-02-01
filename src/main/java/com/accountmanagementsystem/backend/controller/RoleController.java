@@ -1,6 +1,7 @@
 package com.accountmanagementsystem.backend.controller;
 
 import com.accountmanagementsystem.backend.entities.Role;
+import com.accountmanagementsystem.backend.entities.User;
 import com.accountmanagementsystem.backend.exceptions.InvalidRoleException;
 import com.accountmanagementsystem.backend.services.RoleService;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/roles")
+@RequestMapping("/api/roles")
 public class RoleController {
     private RoleService roleService;
 
