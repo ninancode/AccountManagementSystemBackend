@@ -24,18 +24,19 @@ public class BankAccountService {
     public BankAccount findById(int accountId) throws InvalidBankAccountException {
         Optional<BankAccount> optionalBankAccount = bankAccountRepository.findById(accountId);
         if(!optionalBankAccount.isPresent()) {
-            throw new InvalidBankAccountException("Bank account id not found : "+accountId);
+            throw new InvalidBankAccountException("Bank account id/PAN not found : "+accountId);
         }
         return optionalBankAccount.get();
     }
 
-    public List<BankAccount> findByCustomerId(int customerId) throws InvalidBankAccountException {
-        List<BankAccount> optionalBankAccounts = bankAccountRepository.findBankAccountsByCustomerId(customerId);
+    public List<BankAccount> findByPAN(int pan) throws InvalidBankAccountException {
+        List<BankAccount> optionalBankAccounts = bankAccountRepository.findBankAccountsByPan(pan);
         if(!optionalBankAccounts.isEmpty()) {
-            throw new InvalidBankAccountException("Customer PAN not found : "+customerId);
+            throw new InvalidBankAccountException("Customer PAN not found : "+pan);
         }
         return optionalBankAccounts;
     }
+
     public List<BankAccount> findAll(){
         return bankAccountRepository.findAll();
     }

@@ -32,7 +32,7 @@ public class TransactionService {
     public List<Transaction> findByTransactionRef(int transactionRef) throws InvalidTransactionException {
         List<Transaction> optionalTransactions = transactionRepository.findTransactionsByTransactionRef(transactionRef);
         if(!optionalTransactions.isEmpty()) {
-            throw new InvalidTransactionException("Transaction reference number not found : "+transactionRef);
+            throw new InvalidTransactionException("Transaction reference number/PAN not found : "+transactionRef);
         }
         return optionalTransactions;
     }

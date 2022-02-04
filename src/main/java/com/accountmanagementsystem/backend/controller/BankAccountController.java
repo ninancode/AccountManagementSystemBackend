@@ -27,9 +27,9 @@ public class BankAccountController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/{customerId}")
-    public ResponseEntity<List<BankAccount>> findBankAccountByPan(@PathVariable int customerId) throws InvalidBankAccountException {
-        List<BankAccount> bankAccounts = bankAccountService.findByCustomerId(customerId);
+    @GetMapping("/bankaccount/{pan}")
+    public ResponseEntity<List<BankAccount>> findByPan(@PathVariable int pan) throws InvalidBankAccountException {
+        List<BankAccount> bankAccounts = bankAccountService.findByPAN(pan);
         ResponseEntity<List<BankAccount>> responseEntity = new ResponseEntity<List<BankAccount>>(bankAccounts, HttpStatus.OK);
         return responseEntity;
     }
@@ -40,6 +40,7 @@ public class BankAccountController {
         return this.bankAccountService.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<BankAccount> save(@RequestBody BankAccount customer) {
         BankAccount bankAccountSave = bankAccountService.save(customer);
@@ -47,6 +48,7 @@ public class BankAccountController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping()
     public ResponseEntity<BankAccount> update (@RequestBody BankAccount bankAccount) throws InvalidBankAccountException {
         BankAccount bankAccountUpdate = bankAccountService.update(bankAccount) ;
@@ -54,6 +56,7 @@ public class BankAccountController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{accountId}")
     public ResponseEntity<BankAccount> delete(@PathVariable int accountId) throws InvalidBankAccountException {
         BankAccount bankAccount = bankAccountService.delete(accountId);

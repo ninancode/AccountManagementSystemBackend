@@ -27,7 +27,7 @@ public class TransactionController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/{transactionRef}")
+    @GetMapping("/transaction/{transactionRef}")
     public ResponseEntity<List<Transaction>> findByTransactionRef(@PathVariable int transactionRef) throws InvalidTransactionException {
         List<Transaction> transactions = transactionService.findByTransactionRef(transactionRef);
         ResponseEntity<List<Transaction>> responseEntity = new ResponseEntity<List<Transaction>>(transactions, HttpStatus.OK);
@@ -40,6 +40,7 @@ public class TransactionController {
         return this.transactionService.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<Transaction> save(@RequestBody Transaction transaction) {
         Transaction transactionSave = transactionService.save(transaction);
@@ -47,6 +48,7 @@ public class TransactionController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping()
     public ResponseEntity<Transaction> update (@RequestBody Transaction transaction) throws InvalidTransactionException {
         Transaction transactionUpdate = transactionService.update(transaction) ;
@@ -54,6 +56,7 @@ public class TransactionController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{transactionId}")
     public ResponseEntity<Transaction> delete(@PathVariable int transactionId) throws InvalidTransactionException {
         Transaction transaction = transactionService.delete(transactionId);

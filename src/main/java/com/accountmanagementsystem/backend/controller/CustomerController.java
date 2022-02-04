@@ -28,7 +28,7 @@ public class CustomerController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/{pan}")
+    @GetMapping("/pan/{pan}")
     public ResponseEntity<Customer> findCustomerByPan(@PathVariable int pan) throws InvalidCustomerException {
         Customer customer = customerService.findByPan(pan);
         ResponseEntity<Customer> responseEntity = new ResponseEntity<Customer>(customer, HttpStatus.OK);
@@ -41,6 +41,7 @@ public class CustomerController {
         return this.customerService.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<Customer> save(@RequestBody Customer customer) {
         Customer customerSave = customerService.save(customer);
@@ -48,6 +49,7 @@ public class CustomerController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping()
     public ResponseEntity<Customer> update (@RequestBody Customer customer) throws InvalidCustomerException {
         Customer customerUpdate = customerService.update(customer) ;
@@ -55,6 +57,7 @@ public class CustomerController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{customerId}")
     public ResponseEntity<Customer> delete(@PathVariable int customerId) throws InvalidCustomerException {
         Customer customer = customerService.delete(customerId);

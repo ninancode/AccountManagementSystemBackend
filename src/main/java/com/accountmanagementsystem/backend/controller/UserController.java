@@ -32,6 +32,7 @@ public class UserController {
         return this.userService.findAll();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping()
     public ResponseEntity<User> save(@RequestBody User user) {
         User userSave = userService.save(user);
@@ -39,6 +40,7 @@ public class UserController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping()
     public ResponseEntity<User> update (@RequestBody User user) throws InvalidUserException {
         User userUpdate = userService.update(user) ;
@@ -46,6 +48,7 @@ public class UserController {
         return responseEntity;
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/{id}")
     public ResponseEntity<User> delete(@PathVariable int id) throws InvalidUserException {
         User user = userService.delete(id);
